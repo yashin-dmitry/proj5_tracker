@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'habits',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,6 @@ CELERY_TIMEZONE = 'UTC'
 
 # Telegram settings
 TELEGRAM_BOT_TOKEN = os.getenv('TELEGRAM_BOT_TOKEN')
+
+# Кастомная модель пользователя
+AUTH_USER_MODEL = 'users.CustomUser'

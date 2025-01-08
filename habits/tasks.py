@@ -5,6 +5,12 @@ import os
 
 @shared_task
 def send_reminder():
+    """
+    Отправляет напоминания пользователям о выполнении привычек.
+
+    Эта задача выполняется ежедневно в полночь и отправляет сообщения
+    пользователям через Telegram.
+    """
     bot = Bot(token=os.getenv('TELEGRAM_BOT_TOKEN'))
     habits = Habit.objects.all()
     for habit in habits:

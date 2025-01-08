@@ -6,7 +6,8 @@ from telegram import Bot
 class Command(BaseCommand):
     help = 'Get Telegram chat ID'
 
-    async def get_updates(self):
+    @staticmethod
+    async def get_updates():
         bot = Bot(token=os.getenv('TELEGRAM_BOT_TOKEN'))
         updates = await bot.get_updates()
         for update in updates:
