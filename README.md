@@ -122,3 +122,51 @@ GET http://localhost:8000/api/habits/
 Email: contact@example.com
 GitHub Issues: https://github.com/ваш_пользователь/habit_tracker/issues
 
+
+
+
+  Запуск проекта с использованием Docker Compose
+  Запустите проект с помощью Docker Compose:
+
+docker-compose up --build
+
+Эта команда выполнит следующие действия:
+
+Сборка Docker-образов: Docker Compose соберет Docker-образы для всех сервисов, определенных в файле docker-compose.yml.
+Запуск контейнеров: Docker Compose запустит контейнеры для всех сервисов, включая Django, PostgreSQL, Redis, Celery и Nginx.
+
+  Доступ к приложению
+
+После запуска контейнеров, проект будет доступен по адресу:
+
+
+http://84.201.165.84
+
+Чтобы остановить контейнеры, выполните следующую команду:
+
+docker-compose down
+
+  Настройка удаленного сервера
+  Установите Docker и Docker Compose на вашем сервере:
+
+sudo apt-get update
+sudo apt-get install -y docker.io
+sudo systemctl start docker
+sudo systemctl enable docker
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+sudo chmod +x /usr/local/bin/docker-compose
+
+
+Создайте директорию для вашего проекта на сервере:
+
+mkdir -p /path/to/your/project 
+
+  Деплой проекта на сервер
+  Запустите GitHub Actions:
+
+При каждом push в ветку main или при создании pull request в ветку main, GitHub Actions автоматически запустит тесты, соберет Docker-образы и развернет проект на удаленном сервере.
+
+Проект будет доступен по адресу:
+
+
+http://84.201.165.84
