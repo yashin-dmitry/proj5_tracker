@@ -72,5 +72,5 @@ jobs:
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh-keyscan -H $SSH_HOST >> ~/.ssh/known_hosts
-          scp -r . $SSH_USER@$SSH_HOST:/path/to/your/project
-          ssh $SSH_USER@$SSH_HOST "cd /path/to/your/project && docker-compose down && docker-compose up -d"
+          scp -r . $SSH_USER@$SSH_HOST:\Users\exigo\PycharmProjects\proj5_tracker
+          ssh $SSH_USER@$SSH_HOST "cd \Users\exigo\PycharmProjects\proj5_tracker && docker-compose down && docker-compose up -d"
